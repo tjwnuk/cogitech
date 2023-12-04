@@ -10,3 +10,13 @@ https://github.com/tjwnuk
 This is recruitment task for Cogitech.\
 This repo utilises template from \
 https://github.com/ger86/symfony-docker
+
+## Install
+clone this repo \
+```
+cd cogitech
+cd .docker
+docker compose up -d
+docker exec -it symfony_dockerized-php-1 bash
+composer install
+```
