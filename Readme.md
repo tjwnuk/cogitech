@@ -20,3 +20,5 @@ docker compose up -d
 docker exec -it symfony_dockerized-php-1 bash
 composer install
 ```
+
+App works on port :8080
