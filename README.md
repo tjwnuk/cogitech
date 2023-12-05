@@ -30,7 +30,7 @@ php bin/console make:migration
 ```
 
 ## Use
-App works on port :8080 . Please run browser and open `http://localhost:8080`
+App works on port :8080 . Please run browser and open `http://localhost:8080`. After starting the container refresh the page.
 
 1. Run container
 ```bash
