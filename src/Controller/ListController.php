@@ -69,12 +69,11 @@ class ListController extends AbstractController
         return $result;
     }
 
-    #[Route(path: '/list', name: 'list', methods: ['GET'])]
+    #[Route(path: '/lista', name: 'list', methods: ['GET'])]
     public function list(): Response
     {
         $articles = $this->fetchArticles('https://jsonplaceholder.typicode.com/posts');
         $authors = $this->fetchAuthors('https://jsonplaceholder.typicode.com/users');
-        // $data = VarDumper::dump($data);
 
         $data = $this->mixArticlesWithAuthors($articles, $authors);
         
