@@ -12,6 +12,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>name</th>
                 <th>Title</th>
                 <th>Body</th>
             </tr>
@@ -20,6 +21,7 @@
             {% for item in data %}
                 <tr>
                     <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
                     <td>{{ item.title }}</td>
                     <td>{{ item.body }}</td>
                 </tr>
