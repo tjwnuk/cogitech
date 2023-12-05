@@ -19,6 +19,8 @@ cd .docker
 docker compose up -d
 docker exec -it symfony_dockerized-php-1 bash
 composer install
+
+composer require symfony/http-client
 ```
 
 App works on port :8080
