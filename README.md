@@ -30,7 +30,7 @@ php bin/console make:migration
 ```
 
 ## Use
-App works on port :8080
+App works on port :8080 . Please run browser and open `http://localhost:8080`
 
 1. Run container
 ```bash
@@ -52,7 +52,5 @@ docker exec -it symfony_dockerized-php-1 bash
 ```bash
 php bin/console fetch
 ```
-
-5. Run browser and open ```http://localhost:8080```
 
 
