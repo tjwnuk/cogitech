@@ -84,9 +84,8 @@ class fetchCommand extends Command
             ->setDescription('Fetch article list from https://jsonplaceholder.typicode.com/posts');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output) : int
     {
-        // $output->writeln('Hello from Your Command!');
         $articles = $this->fetchArticles('https://jsonplaceholder.typicode.com/posts');
         $authors = $this->fetchAuthors('https://jsonplaceholder.typicode.com/users');
 
