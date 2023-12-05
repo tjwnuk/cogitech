@@ -32,6 +32,7 @@ php bin/console make:migration
 ## Use
 App works on port :8080 . Please run browser and open `http://localhost:8080`. After starting the container refresh the page.
 
+### Fetch the data
 1. Run container
 ```bash
 cd cogitech/.docker/
@@ -53,4 +54,13 @@ docker exec -it symfony_dockerized-php-1 bash
 php bin/console fetch
 ```
 
+### Clear the database
 
+You can simply clear the database, just log into container
+```bash
+docker exec -it symfony_dockerized-php-1 bash
+```
+and run the command
+```bash
+php bin/console clear
+```
