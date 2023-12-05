@@ -7,9 +7,19 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 use Symfony\Component\HttpClient\HttpClient;
+use Doctrine\ORM\EntityManagerInterface;
+
+use App\Entity\Article;
 
 class fetchCommand extends Command
 {
+    private $entityManager;
+    public function __construct(EntityManagerInterface $entityManagerInterface)
+    {
+        $this->entityManager = $entityManagerInterface;
+
+        parent::__construct();
+    }
     public function fetchArticles(string $url) : array
     {
         $client = HttpClient::create();
@@ -81,9 +91,23 @@ class fetchCommand extends Command
         $authors = $this->fetchAuthors('https://jsonplaceholder.typicode.com/users');
 
         $data = $this->mixArticlesWithAuthors($articles, $authors);
+        $entityManager = $this->entityManager;
 
         if(count($data) > 0)
         {
+            foreach ($data as $article)
+            {
+                $newObj = new Article();
+                
+                $newObj->setName($article['name']);
+                $newObj->setArticleId($article['id']);
+                $newObj->setTitle($article['title']);
+                $newObj->setBody($article['body']);
+
+                $entityManager->persist($newObj);
+                $entityManager->flush();
+            }
+
             $size = count($data);
             $output->writeln("<info>Fetched successfully $size items.</info>");
             
