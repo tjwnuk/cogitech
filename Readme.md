@@ -24,6 +24,9 @@ composer install
 composer require symfony/http-client
 composer require symfony/serializer
 composer require symfony/twig-bundle
+
+#initialize database entity
+php bin/console make:migration
 ```
 
 App works on port :8080
