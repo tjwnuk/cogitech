@@ -27,6 +27,12 @@
         tr:nth-child(even) {
             background-color:  #f1ecf9;
         }
+
+        .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
         
     </style>
 </head>
@@ -37,6 +43,15 @@
         </h2>
     </nav>
     <div class="container py-5">
+    {% if data is empty %}
+        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Database is empty</div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">There are no data in the database.<br>Populate it with command <br>php bin/console fetch</p>
+            </div>
+        </div>
+    {% else %}
         <table>
             <thead>
                 <tr>
@@ -60,5 +75,6 @@
             </tbody>
         </table>
     </div>
+    {% endif %}
 </body>
 </html>
