@@ -24,6 +24,7 @@ composer install
 composer require symfony/http-client
 composer require symfony/serializer
 composer require symfony/twig-bundle
+composer require security
 
 #initialize database entity
 php bin/console make:migration
