@@ -5,19 +5,19 @@ security:
         # Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     password_hashers:
-        App\Entity\User:
-            algorithm: plaintext
+        Symfony\Component\Security\Core\User\InMemoryUser:
+            algorithm: auto
             cost: 15
     providers:
-        app_user_provider:
-                entity:
-                    class: App\Entity\User
-                    property: username
+        # app_user_provider:
+        #         entity:
+        #             class: App\Entity\User
+        #             property: username
         users_in_memory:
             memory:
                 users:
                     cogitech:
-                        password: '$argon2id$v=19$m=65536,t=4,p=1$JGF0dHlwPTMmcGFzc3dvcmQ9cGFzczEyMyZyZW1hcmtzPWJhc2U2NTY=' # hashed password for 'pass123'
+                        password: '$2a$15$m6WJ8E5SoM7JJ/DkD4t0fekApCvg0LahnSHCXf2pc//lbH7MXbI/O' # hashed password for 'pass123'
                         roles: ['ROLE_USER'] 
     firewalls:
         dev:
@@ -25,7 +25,7 @@ security:
             security: false
         main:
             lazy: true
-            provider: app_user_provider
+            provider: users_in_memory
             custom_authenticator: App\Security\AppCustomAuthenticator
             logout:
                 path: app_logout
@@ -41,5 +41,6 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/lista, roles: ROLE_USER }
