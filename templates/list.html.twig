@@ -36,12 +36,7 @@
         </style>
     {% endblock %}
     {% block body %}
-        <nav class="navbar navbar-light" style="background-color: #d3c5ec;">
-            <h2>
-            {# <a href='https://jsonplaceholder.typicode.com/posts'>https://jsonplaceholder.typicode.com/posts</a> #}
-            </h2>
-        </nav>
-        <div class="container py-5">
+                
         {% if data is empty %}
             <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header">Database is empty</div>
@@ -73,6 +68,6 @@
                     {% endfor %}
                 </tbody>
             </table>
-        </div>
+        
         {% endif %}
     {% endblock %}

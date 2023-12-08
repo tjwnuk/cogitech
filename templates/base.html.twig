@@ -16,16 +16,20 @@
     </head>
     <body>
         <nav class="navbar navbar-light" style="background-color: #d3c5ec;">
-            {# <h2>Lista
-            <a href='https://jsonplaceholder.typicode.com/posts'>https://jsonplaceholder.typicode.com/posts</a>
-            </h2> #}
             <div class="container">
+            
+                <a class="navbar-brand" href="{{ path('home') }}">
+                    <img src="{{ asset('images/home.png') }}" alt="Home" width="30" height="30">
+                    Home
+                </a>
+
             <h2>{% block header %}{% endblock %}</h2>
             <div>
         </nav>
         {# <div class="container"> #}
+        <div class="container py-5">
             {% block body %}{% endblock %}
-
+        </div>
         {# <div> #}
     </body>
 </html>
