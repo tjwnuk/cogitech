@@ -3,6 +3,16 @@
 
 {% block header %}List of posts{% endblock %}
 
+{% block loginBlock %}
+    {% if user %}
+        {{ user }}
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/login">Login</a>
+    {% endif %}
+{% endblock %}
+
+
     {% block stylesheets %}
         <style>
             table {    
