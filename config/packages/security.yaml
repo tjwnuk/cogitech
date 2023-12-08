@@ -1,18 +1,31 @@
 # config/packages/security.yaml
 security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
-    password_hashers:
-        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+    # password_hashers:
+        # Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    password_hashers:
+        App\Entity\User:
+            algorithm: plaintext
+            cost: 15
     providers:
-        users_in_memory: { memory: null }
+        app_user_provider:
+                entity:
+                    class: App\Entity\User
+                    property: username
+        users_in_memory:
+            memory:
+                users:
+                    cogitech:
+                        password: '$argon2id$v=19$m=65536,t=4,p=1$JGF0dHlwPTMmcGFzc3dvcmQ9cGFzczEyMyZyZW1hcmtzPWJhc2U2NTY=' # hashed password for 'pass123'
+                        roles: ['ROLE_USER'] 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             lazy: true
-            provider: users_in_memory
+            provider: app_user_provider
             custom_authenticator: App\Security\AppCustomAuthenticator
             logout:
                 path: app_logout
