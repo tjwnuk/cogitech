@@ -20,12 +20,6 @@ docker compose up -d
 docker exec -it symfony_dockerized-php-1 bash
 composer install
 
-# symfony modules
-composer require symfony/http-client
-composer require symfony/serializer
-composer require symfony/twig-bundle
-composer require security
-
 #initialize database entity
 php bin/console make:migration
 ```
