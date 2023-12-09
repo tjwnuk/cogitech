@@ -1,0 +1,29 @@
+{# templates/home.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block header %}Homepage{% endblock %}
+{% block body %}
+
+<div class="container mt-5 px-4">
+  <div class="row gx-5">
+    <div class="col-md-5 text-center" style="border: 0px; border-radius: 10px; padding: 20px; background-color: #AED581; color: #33691E">
+      <ul style="font-size: 1.2em; list-style-type: none; line-height: 1.5;">
+        <li style="margin-bottom: 2em;"><h2>Cogitech recrutiment task</h2></li>
+        <li style="margin-bottom: 2em;"><h2>Tomasz Wnuk</h2></li>
+        <li style="margin-bottom: 2em;"><a href="https://github.com/tjwnuk/cogitech" style="color: #33691E">https://github.com/tjwnuk/cogitech</li>
+        <li style="margin-bottom: 2em;"><a href="mailto:tjwnuk@proton.me" style="color: #33691E">tjwnuk@proton.me</a></li>
+      </ul>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-5 text-center" style="border: 2px solid #6f42c1; border-radius: 10px; padding: 20px;">
+        <ul style="font-size: 1.2em; list-style-type: none; line-height: 1.5;">
+            <li style="margin-bottom: 2em;">The application retrieves posts from a remote REST API and stores them locally along with author information.</li>
+            <li style="margin-bottom: 2em;">A dedicated subpage (/lista) displays the retrieved posts and allows users to delete them after logging in.</li>
+            <li style="margin-bottom: 2em;">The application exposes an API endpoint (/posts) for retrieving posts from the local database.</li>
+        </ul>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

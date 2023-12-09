@@ -16,7 +16,6 @@ class ListController extends AbstractController
 {
     public function __construct(Security $security)
     {
-        // $this->user = $security->getToken()->getUser();
         $this->security = $security;
     }
     
@@ -27,17 +26,20 @@ class ListController extends AbstractController
         $entityManager = $doctrine->getManager();
         $repo = $entityManager->getRepository(Article::class);
         $query  = $repo->createQueryBuilder('article')->orderBy('article.id')->getQuery();
+        $data = $query->getResult();
+
         $security = $this->security;
         $user = null;
-
-        $data = $query->getResult();
+        $username = null;
         if($security->getToken() != null) {
             $user = $security->getUser();
+            $username = $user->getUserIdentifier();
         }
+        
 
         return $this->render('list.html.twig', [
             'data' => $data,
-            'user' => $user->getUserIdentifier(),
+            'username' => $username,
         ]);
     }
 }
