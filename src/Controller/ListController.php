@@ -34,12 +34,17 @@ class ListController extends AbstractController
         if($security->getToken() != null) {
             $user = $security->getUser();
             $username = $user->getUserIdentifier();
+            $loggedIn = true;
+        }
+        else {
+            $loggedIn = false;
         }
         
 
         return $this->render('list.html.twig', [
             'data' => $data,
             'username' => $username,
+            'loggedIn' => $loggedIn,
         ]);
     }
 }

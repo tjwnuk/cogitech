@@ -24,10 +24,15 @@ class HomeController extends AbstractController
         if($security->getToken() != null) {
             $user = $security->getUser();
             $username = $user->getUserIdentifier();
+            $loggedIn = true;
+        }
+        else {
+            $loggedIn = false;
         }
         
         return $this->render('home.html.twig', [
             'username' => $username,
+            'loggedIn' => $loggedIn,
         ]);
     }
 }
