@@ -59,3 +59,11 @@ and run the command
 ```bash
 php bin/console clear
 ```
+
+## API
+The site exposes api through the API Platform, available at /api.
+```
+/api - Swagger UI
+/api/posts - List of all posts
+/api/posts/{id} - get certain post
+```

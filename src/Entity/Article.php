@@ -5,6 +5,17 @@ namespace App\Entity;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+
+#[ApiResource(
+    routePrefix: '/posts',
+    operations: [
+        new Get(uriTemplate: '/{id}'),
+        new GetCollection(uriTemplate: '/')
+    ]
+)]
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
